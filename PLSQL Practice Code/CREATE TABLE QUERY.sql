@@ -1,3 +1,5 @@
+
+-- table to store user trx data
 create table test_file_export (
 id number primary key,
 user_id number,
@@ -12,7 +14,7 @@ constraint fkey_name
 foreign key (user_id) references fnd_user (user_id)
 );
 
-
+--table to store user data
 create table fnd_user (
 user_id number primary key,
 user_name varchar2(30),
