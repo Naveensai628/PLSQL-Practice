@@ -25,3 +25,4 @@ last_update_date date
 
 
 grant all on test_file_export to public;
+grant all on fnd_user to public;
