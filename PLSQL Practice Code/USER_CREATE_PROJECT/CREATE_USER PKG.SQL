@@ -2,6 +2,7 @@
 
 /*
                    USER CREATION PKG
+                   Description: this script includes pkg, pkg body, script to generate sample data
                    V1 --GALI RAVI NAVEEN 13-02-2023
 
 
