@@ -1,4 +1,4 @@
---CREATE  PKG SPECIFICATION
+--CREATE  PKG SPECIFICATION IN ORACLE DATABASE
 
 /*
                    USER CREATION PKG
@@ -124,3 +124,35 @@ PROCEDURE user_create (
     END user_create;
 
 END create_user;
+
+
+--To generate sample data in FND_USER table
+--use below script to generate basic data in the table.
+declare
+uname_a fnd_user.name%type;
+mobile_a fnd_user.mobile_number%type;
+mobile_cast_num number(10);
+job_a fnd_user.job_position%type;
+
+begin
+
+
+for i in 1..1000
+loop
+
+uname_a := dbms_random.string('u', 6);
+mobile_cast_num := dbms_random.value(1000000000, 9999999999);
+mobile_a := to_char(mobile_cast_num);
+job_a := dbms_random.string('u', 8);
+
+
+create_user.user_create(uname=>uname_a/*varchar2*/,mobile_number=>mobile_a/*varchar2*/,job_position=>job_a/*varchar2*/
+);
+
+end loop;
+dbms_output.put_line(uname_a||'-'||mobile_a||'-'||job_a);
+
+exception
+when others then
+dbms_output.put_line(sqlerrm);
+end;
